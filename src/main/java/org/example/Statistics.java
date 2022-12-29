@@ -70,8 +70,7 @@ public class Statistics extends Application {
     }
     //metoda zwracajaca liczbe wolnych pol na mapie
     public int freeFields(){
-        int res = this.map.getMapHeight()*this.map.getMapWidth()-(this.map.animals.toArray().length+this.map.plants.keySet().toArray().length);
-        return res;
+        return (this.map.getMapHeight()* this.map.getMapWidth())-(this.map.getAmountOfAnimals()+this.map.plants.keySet().toArray().length);
     }
     //metoda podajaca sredni poziom energii sposrod aktywnych zwierzat
     public double avgEnergyLevel(){
