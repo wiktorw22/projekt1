@@ -204,7 +204,7 @@ public class SimulationEngine implements IEngine, Runnable {
     //metoda rozmnazajace zdolne do tego zwierzaki
     public void multiplicate(){
         for(int i = 0; i < this.map.animals.toArray().length; i++) { //this.map.getAmountOfAnimals()
-            if(this.map.animals.get(i) != null){
+            if(this.map.animals.get(i) != null && this.map.positions.get(this.map.animals.get(i).getAnimalPosition()) != null){
                 if(this.map.positions.get(this.map.animals.get(i).getAnimalPosition()).toArray().length >= 2){
                     Parents parents = new Parents(this.map.positions.get(this.map.animals.get(i).getAnimalPosition()), this.map.animals.get(i).getAnimalPosition(), this.map);
                     if(parents.ifCanMultiplicate()){
