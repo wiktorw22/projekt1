@@ -13,7 +13,7 @@ Aby uruchomić symulację należy podać wszystkie niezbędne parametry w pojawi
 skorzystania z domyślnych wartości parametrów, które są nam zasugerowane.
 Należy zwrócić uwagę, aby były one nieujemne. W przeciwnym wypadku program ukaże nam odpowiedni komunikat i rzuci wyjątek.
 
-Gdy uruchomiona zostanie już właściwa symulacja mamy poprzez kliknięcie przycisku 'start simulation' po lewej stronie mapy 
+Gdy uruchomiona zostanie już właściwa symulacja poprzez kliknięcie przycisku 'start simulation' po lewej stronie mapy 
 ukażą się nam 3 przyciski.
 Klikając w przycisk 'statistics' mamy możliwość zobaczenia aktualnych statystyk dla sytuacji na obserwowanej mapie.
 Klikając natomiast w przycisk 'properties' ukaże się nam okno z opisem poszczególnych kolorów użytych do zobrazowania sytyacji na mapie.
