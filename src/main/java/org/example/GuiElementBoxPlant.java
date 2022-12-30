@@ -8,28 +8,21 @@ import javafx.scene.layout.VBox;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import static java.lang.Math.max;
 
-public class GuiElementBoxPlant {
+public class GuiElementBoxPlant extends AbstractGuiElementBox {
     Image image;
     ImageView imageView;
-    public GuiElementBoxPlant(IMapElementTemp mapElement,AnimalMap map) throws FileNotFoundException {
-
-        image = new Image(new FileInputStream(mapElement.getImageFile()));
-
-        imageView = new ImageView(image);
-
-        imageView.setFitWidth((double)500/max(map.getMapWidth(),map.getMapHeight()));
-        imageView.setFitHeight((double)500/max(map.getMapWidth(),map.getMapHeight()));
-
+    public GuiElementBoxPlant(IMapElementTemp mapElement, ArrayList<Animal> animalList, AnimalMap map) throws FileNotFoundException {
+        super(mapElement, animalList, map);
     }
 
-    public VBox toBox() {
-
-        VBox box = new VBox(imageView);
-        box.setAlignment(Pos.CENTER);
-        return box;
+    @Override
+    public Image initializePictures(int numberOfAnimalsInTheBox) throws FileNotFoundException {
+        return new Image(new FileInputStream("src/main/resources/plant.jpg"));
     }
+
 }
 

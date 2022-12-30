@@ -12,12 +12,12 @@ import java.util.ArrayList;
 
 import static java.lang.Math.max;
 
-public class GuiBoxElementAnimalPlant {
+public class GuiBoxElementAnimalPlant extends AbstractGuiElementBox {
     Image image;
-    ImageView imageView;
-    public GuiBoxElementAnimalPlant(IMapElementTemp mapElement, ArrayList<Animal> animalList,AnimalMap map) throws FileNotFoundException {
-
-        int numberOfAnimalsInTheBox = animalList.toArray().length;
+    public GuiBoxElementAnimalPlant(IMapElementTemp mapElement, ArrayList<Animal> animalList, AnimalMap map) throws FileNotFoundException {
+        super(mapElement, animalList, map);
+    }
+    public Image initializePictures(int numberOfAnimalsInTheBox) throws FileNotFoundException {
         if(numberOfAnimalsInTheBox>0 && numberOfAnimalsInTheBox<5){
             image = new Image(new FileInputStream("src/main/resources/both0.png"));
         }
@@ -27,23 +27,9 @@ public class GuiBoxElementAnimalPlant {
         else if(numberOfAnimalsInTheBox>0){
             image = new Image(new FileInputStream("src/main/resources/both2.png"));
         }
-
-        imageView = new ImageView(image);
-
-        imageView.setFitWidth(10);
-        imageView.setFitHeight(10);
-
-        imageView.setFitWidth((double)500/max(map.getMapWidth(),map.getMapHeight()));
-        imageView.setFitHeight((double)500/max(map.getMapWidth(),map.getMapHeight()));
-
+        return image;
     }
 
-    public VBox toBox() {
-
-        VBox box = new VBox(imageView);
-        box.setAlignment(Pos.CENTER);
-        return box;
-    }
 }
 
 

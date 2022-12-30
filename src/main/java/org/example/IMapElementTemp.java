@@ -2,7 +2,7 @@ package org.example;
 
 public interface IMapElementTemp{
 
-    public String getImageFile();
+    String getImageFile();
 
-    public Vector2d getPlantPosition();
+    Vector2d getPlantPosition();
 }

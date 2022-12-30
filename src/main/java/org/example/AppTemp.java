@@ -115,12 +115,12 @@ public class AppTemp extends Application implements IPositionChangeObserver{
                     GridPane.setHalignment(label, HPos.CENTER);
                 }
                 else if (animalList != null){
-                    VBox box = new GuiElementBoxAnimal(animalList,map).toBoxAnimals();
+                    VBox box = new GuiElementBoxAnimal(mapElement, animalList, map).toBox();
                     grid.add(box, 1 + j, map.getMapHeight() - i);
                     GridPane.setHalignment(label, HPos.CENTER);
                 }
                 else if (mapElement != null) {
-                    VBox box = new GuiElementBoxPlant(mapElement,map).toBox();
+                    VBox box = new GuiElementBoxPlant(mapElement, animalList, map).toBox();
                     grid.add(box, 1 + j, map.getMapHeight() - i);
                     GridPane.setHalignment(label, HPos.CENTER);
                 }

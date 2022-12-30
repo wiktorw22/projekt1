@@ -8,9 +8,6 @@ public class Gene {
     public int getGene(){
         return this.gene;
     }
-    public void setGene(int moveGene){
-        this.gene = getGene() + moveGene;
-    }
     public Vector2d geneToVector2d(){
         return switch (this.gene) {
             case 0 -> new Vector2d(0, 1);

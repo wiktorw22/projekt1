@@ -186,7 +186,7 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
     public void cleanUpDeadAnimals(ArrayList<Animal> animals){
         for(int i=0; i<animals.toArray().length; i++){
             Animal animal = animals.get(i);
-            if(animals!=null && animal!=null && animal.getAnimalEnergy()==0){
+            if(animal != null && animal.getAnimalEnergy() == 0){
                 Vector2d position = animal.getAnimalPosition();
                 deadAnimals.put(position,deadAnimals.get(position)+1);
                 deadAnimalsList.add(animal);

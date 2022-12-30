@@ -51,7 +51,7 @@ public class StatisticsToFile {
         try {
             Files.write(path, out);
         } catch (IOException ex) {
-            System.out.println(" Cannot write to file! ");
+            System.out.println(" Cannot write data to file! ");
         }
 
     }
