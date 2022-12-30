@@ -45,21 +45,21 @@ public class Properties extends Application {
         Label image1Label = new Label(" used for fields where amount of animals there is between 3 and 8 ");
         GridPane.setConstraints(image1Label,1,2,1,1);
 
-        //pomaranczowa
+        //pomaranczowa ikona
         ImageView image2 = new ImageView(new Image(new FileInputStream("src/main/resources/dot2.png")));
         GridPane.setConstraints(image2,0,3,1,1);
 
         Label image2Label = new Label(" used for fields where amount of animals there is between 8 and 12 ");
         GridPane.setConstraints(image2Label,1,3,1,1);
 
-        //czerwona
+        //czerwona ikona
         ImageView image3 = new ImageView(new Image(new FileInputStream("src/main/resources/dot3.png")));
         GridPane.setConstraints(image3,0,4,1,1);
 
         Label image3Label = new Label(" used for fields where amount of animals there is between 12 and 20 ");
         GridPane.setConstraints(image3Label,1,4,1,1);
 
-        //bordowa
+        //bordowa ikona
         ImageView image4 = new ImageView(new Image(new FileInputStream("src/main/resources/dot4.png")));
         GridPane.setConstraints(image4,0,5,1,1);
 
