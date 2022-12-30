@@ -7,11 +7,11 @@ public interface IWorldMap {
     public void removeFromList(Vector2d position, Animal animal);
     public void cleanUpDeadAnimals(ArrayList<Animal> animals);
     public boolean canMoveTo(Vector2d position);
-    //public boolean addAnimals(Animal animal);
     public boolean place(Animal animal);
     public boolean isOccupied(Vector2d position);
     ArrayList<Animal> objectsAt(Vector2d position);
-    //dopisac metody odpowiedzialne za 'kule ziemska'
+    //metoda odpowiedzialna za 'kule ziemska'
+    public Vector2d switchToOtherSide(Vector2d prevPosition, Animal animal);
     public boolean canMoveToPlant(Vector2d position);
     public boolean placePlant(Plant plant);
     public boolean isOccupiedPlant(Vector2d position);

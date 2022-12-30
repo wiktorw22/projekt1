@@ -16,13 +16,11 @@ public class Settings extends Application {
     AnimalMap map;
     SimulationEngine engine;
     AppTemp app;
-
     public void setError(TextField value, String info, Stage primaryStage){
 
             window.close();
-
             window = primaryStage;
-            window.setTitle(" Errors ");
+            window.setTitle(" errors ");
             GridPane newGrid = new GridPane();
 
             newGrid.setPadding(new Insets(10,10,10,10));
@@ -51,66 +49,66 @@ public class Settings extends Application {
         grid.setHgap(10);
 
         // wysokość mapy
-        Label mapHeight = new Label("Map height");
+        Label mapHeight = new Label(" Map height ");
         GridPane.setConstraints(mapHeight,0,0);
         TextField defaultMapHeight = new TextField("20");
         GridPane.setConstraints(defaultMapHeight,1,0);
 
         //szerokość mapy
-        Label mapWidth = new Label("Map width");
+        Label mapWidth = new Label(" Map width ");
         GridPane.setConstraints(mapWidth,0,1);
         TextField defaultMapWidth = new TextField("20");
         GridPane.setConstraints(defaultMapWidth,1,1);
 
         //startowa liczba zwierzaków
-        Label initalNumberOfAnimals = new Label("Initial number of animals");
+        Label initalNumberOfAnimals = new Label(" Initial number of animals ");
         GridPane.setConstraints(initalNumberOfAnimals,0,2);
         TextField defaultNumOfAnimals = new TextField("10");
         GridPane.setConstraints(defaultNumOfAnimals,1,2);
 
         //startowa liczba traw
-        Label initialNumberOfGrass = new Label("Initial number of grass");
+        Label initialNumberOfGrass = new Label(" Initial number of plants ");
         GridPane.setConstraints(initialNumberOfGrass,0,3);
         TextField defaultNumberOfGrass = new TextField("20");
         GridPane.setConstraints(defaultNumberOfGrass,1,3);
 
         //energia zapewniana przez zjedzenie jednej rośliny
-        Label grassEnergy = new Label("Grass energy");
+        Label grassEnergy = new Label(" Plant energy ");
         GridPane.setConstraints(grassEnergy,0,4);
         TextField defaultGrassEnergy = new TextField("5");
         GridPane.setConstraints(defaultGrassEnergy,1,4);
 
         //liczba roślin wyrastająca każdego dnia
-        Label numberOfGrassGrowingEveryday = new Label("Number of grass growing everyday");
+        Label numberOfGrassGrowingEveryday = new Label(" Number of plants growing every day ");
         GridPane.setConstraints(numberOfGrassGrowingEveryday,0,5);
         TextField defaultGrassNumberGrowingEveryday = new TextField("5");
         GridPane.setConstraints(defaultGrassNumberGrowingEveryday,1,5);
 
         //startowa energia zwierzaków
-        Label initialAnimalEnergy = new Label("Initial animal energy");
+        Label initialAnimalEnergy = new Label(" Initial animal energy ");
         GridPane.setConstraints(initialAnimalEnergy,0,6);
         TextField defaultAnimalEnergy = new TextField("7");
         GridPane.setConstraints(defaultAnimalEnergy,1,6);
 
-        //minimalna energia do stworzenia dzidziusia
-        Label energyNeededToMakeBabies = new Label("Energy needed to make babies");
+        //minimalna energia do stworzenia potomka
+        Label energyNeededToMakeBabies = new Label(" Energy needed to make babies ");
         GridPane.setConstraints(energyNeededToMakeBabies,0,7);
         TextField defaultEnergyToMakeBabies = new TextField("10");
         GridPane.setConstraints(defaultEnergyToMakeBabies,1,7);
 
         //energia zuzywana do stworzenia potomka
-        Label energyUsedToCreateBabies = new Label("Energy used to create babies");
+        Label energyUsedToCreateBabies = new Label(" Energy used to create babies ");
         GridPane.setConstraints(energyUsedToCreateBabies,0,8);
         TextField defaultEnergyUsedToCreateBabies = new TextField("7");
         GridPane.setConstraints(defaultEnergyUsedToCreateBabies,1, 8);
 
         //dlugosc genomu zwierzakow
-        Label lengthOfAnimalGenome = new Label("Length of animal genome");
+        Label lengthOfAnimalGenome = new Label(" Length of animal genome ");
         GridPane.setConstraints(lengthOfAnimalGenome,0,9);
         TextField defaultLengthOfAnimalGenome = new TextField("4");
         GridPane.setConstraints(defaultLengthOfAnimalGenome,1, 9);
 
-        Button startButton = new Button("start simulation");
+        Button startButton = new Button(" start simulation ");
         GridPane.setConstraints(startButton,1,10);
         grid.getChildren().addAll(mapHeight, defaultMapHeight, mapWidth, defaultMapWidth, initalNumberOfAnimals,
                 defaultNumOfAnimals, initialNumberOfGrass, defaultNumberOfGrass, grassEnergy, defaultGrassEnergy,
@@ -134,12 +132,12 @@ public class Settings extends Application {
             }
             if (Integer.parseInt(defaultNumberOfGrass.getText())<0) {
 
-                setError(defaultNumberOfGrass, " Wrong grass number! ", primaryStage);
+                setError(defaultNumberOfGrass, " Wrong plants number! ", primaryStage);
 
             }
             if (Integer.parseInt(defaultGrassNumberGrowingEveryday.getText())<0) {
 
-                setError(defaultGrassNumberGrowingEveryday, " Wrong grass number growing everyday! ", primaryStage);
+                setError(defaultGrassNumberGrowingEveryday, " Wrong plants number growing every day! ", primaryStage);
 
             }
             if (Integer.parseInt(defaultNumOfAnimals.getText())<0) {
@@ -154,7 +152,7 @@ public class Settings extends Application {
             }
             if (Integer.parseInt(defaultGrassEnergy.getText())<0) {
 
-                setError(defaultGrassEnergy, " Wrong grass energy! ", primaryStage);
+                setError(defaultGrassEnergy, " Wrong plant energy! ", primaryStage);
 
             }
             if (Integer.parseInt(defaultAnimalEnergy.getText())<0) {
@@ -183,8 +181,7 @@ public class Settings extends Application {
                     Integer.parseInt(defaultEnergyToMakeBabies.getText()),
                     Integer.parseInt(defaultEnergyUsedToCreateBabies.getText()));
             this.app = new AppTemp();
-            this.engine = new SimulationEngine(map, app); //, app
-            //engine.run();
+            this.engine = new SimulationEngine(map, app);
             try {
                 app.setSettingsToApp(map, engine);
                 app.init();
@@ -195,8 +192,4 @@ public class Settings extends Application {
             }
         });
     }
-
-
-    public void initialize(Stage primaryStage) throws IllegalArgumentException {
-    }
-    }
+}

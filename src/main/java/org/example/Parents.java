@@ -31,8 +31,4 @@ public class Parents {
         return animalTmp1.getAnimalEnergy() >= this.map.getEnergyNeededToMakeBabies() && animalTmp2.getAnimalEnergy() >= this.map.getEnergyNeededToMakeBabies();
     }
 
-    public Vector2d getArea(){
-        return this.area;
-    }
-
 }

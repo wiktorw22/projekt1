@@ -1,7 +1,6 @@
 package org.example;
 import java.util.*;
 
-//dodac metody odpowiedzialne za kule ziemską! - DODANE
 public class AnimalMap implements IWorldMap, IPositionChangeObserver{
     final private int mapWidth;
     final private int mapHeight;
@@ -12,15 +11,17 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
     private int amountOfPlants;
     final private int grassEnergy; //energia po zjedzenieu 1 rosliny
     final private int initialAnimalEnergy; //startowa energia zwierzakow
-    final private int energyNeededToMakeBabies; //energia niezbedna by stworzyc dzidziusia
+    final private int energyNeededToMakeBabies; //energia niezbedna by stworzyc potomka
     final private int energyUsedToCreateBabies; //energia zuzywana na stworzenie potomka
     protected ArrayList<Animal> animals;  //lista wszystkich zwierzakow
     protected ArrayList<Animal> deadAnimalsList; //lista umarlych zwierzakow
     //slownik zwierzakow uwzgledniajacy fakt, ze moze byc ich kilka na jednej pozycji
     protected Map<Vector2d, ArrayList<Animal>> positions;
     protected Map<Vector2d, Plant> plants; //slownik roslinek
-    protected Map<Vector2d, Integer> deadAnimals;
-    public AnimalMap(int mapWidth, int mapHeight, int startAmountOfPlants, int everyDayAmountOfPlants, int startAmountOfAnimals, int numberOfGenes, int grassEnergy, int initialAnimalEnergy, int energyNeededToMakeBabies, int energyUsedToCreateBabies){
+    protected Map<Vector2d, Integer> deadAnimals; //slownik liczby zmarlych zwierzat na danej pozycji
+    public AnimalMap(int mapWidth, int mapHeight, int startAmountOfPlants, int everyDayAmountOfPlants,
+                     int startAmountOfAnimals, int numberOfGenes, int grassEnergy, int initialAnimalEnergy,
+                     int energyNeededToMakeBabies, int energyUsedToCreateBabies){
         animals = new ArrayList<>();
         plants = new HashMap<>();
         positions = new HashMap<>();
@@ -37,15 +38,6 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
         this.energyNeededToMakeBabies = energyNeededToMakeBabies;
         this.energyUsedToCreateBabies = energyUsedToCreateBabies;
         this.deadAnimals = new HashMap<>();
-    }
-    public ArrayList<Animal> getAnimalsList(){
-        return this.animals;
-    }
-    public Map<Vector2d, Plant> getPlantsHashMap(){
-        return this.plants;
-    }
-    public Map<Vector2d, ArrayList<Animal>> getAnimalsHashMap(){
-        return this.positions;
     }
     public int getEveryDayAmountOfPlants(){
         return this.everyDayAmountOfPlants;
@@ -93,6 +85,7 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
         }
         return false;
     }
+    @Override
     public Vector2d switchToOtherSide(Vector2d prevPosition, Animal animal){
         Vector2d newPosition;
         int newX = prevPosition.x;
@@ -142,20 +135,17 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
     @Override
     public void addToList(Vector2d position, Animal animal) {
         ArrayList<Animal> animalList = positions.get(position);
-        // if list does not exist create it
         if(animalList == null) {
             animalList = new ArrayList<Animal>();
             animalList.add(animal);
             positions.put(position, animalList);
         } else {
-            // add if item is not already in list
             if(!animalList.contains(animal)) animalList.add(animal);
         }
     }
     @Override
     public void removeFromList(Vector2d position, Animal animal) {
         ArrayList<Animal> animalList = positions.get(position);
-        // if list does not exist create it
         if(animalList!=null && animalList.contains(animal)){
             animalList.remove(animal);
         }
@@ -171,12 +161,10 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
         }
         return null; //uwaga na nulla!
     }
-    //i tak przy ruchu zwierzaków trzeba iść po indeksach przy ruszaniu sie
     @Override
     public void positionChanged(Vector2d oldPosition, Vector2d newPosition, int index){
         Animal animal1 = animals.get(index);
         removeFromList(oldPosition, animal1);
-        //animal1.setAnimalPosition(newPosition);
         addToList(newPosition, animal1);
     }
     @Override
@@ -204,9 +192,7 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
                 deadAnimalsList.add(animal);
                 animals.remove(animal);
                 removeFromList(position, animal);
-//                System.out.println("tutaj animal dead");
-//                System.out.println(animal.getAnimalPosition());
-                --i; //sprawdzic czy zadziala
+                --i;
             }
         }
     }

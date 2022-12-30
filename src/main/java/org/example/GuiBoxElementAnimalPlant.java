@@ -13,11 +13,8 @@ import java.util.ArrayList;
 import static java.lang.Math.max;
 
 public class GuiBoxElementAnimalPlant {
-
     Image image;
     ImageView imageView;
-    Label label;
-
     public GuiBoxElementAnimalPlant(IMapElementTemp mapElement, ArrayList<Animal> animalList,AnimalMap map) throws FileNotFoundException {
 
         int numberOfAnimalsInTheBox = animalList.toArray().length;
@@ -33,20 +30,11 @@ public class GuiBoxElementAnimalPlant {
 
         imageView = new ImageView(image);
 
-        //imageView = new ImageView(image);
+        imageView.setFitWidth(10);
+        imageView.setFitHeight(10);
 
-//        imageView.setFitWidth(10);
-//        imageView.setFitHeight(10);
-//        if(numberOfAnimalsInTheBox>0){
-//            label = new Label(Integer.toString(numberOfAnimalsInTheBox));
-//        }
-//        else{
-//            label = new Label();
-//        }
         imageView.setFitWidth((double)500/max(map.getMapWidth(),map.getMapHeight()));
         imageView.setFitHeight((double)500/max(map.getMapWidth(),map.getMapHeight()));
-
-
 
     }
 

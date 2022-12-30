@@ -12,12 +12,6 @@ public class Multiplication {
         this.animal2 = animal2;
         this.map = map;
     }
-    public Animal getAnimal1(){
-        return this.animal1;
-    }
-    public Animal getAnimal2(){
-        return this.animal2;
-    }
     public Animal strongestAnimal(Animal animal1, Animal animal2){
         if(animal1.getAnimalEnergy() >= animal2.getAnimalEnergy()){
             return animal1;
@@ -44,10 +38,6 @@ public class Multiplication {
         for(int i=0; i<randomAmountOfGenes; i++){
             Random pomIdx = new Random();
             int idx = pomIdx.nextInt(this.map.getNumberOfGenesPerAnimal());
-//            while(indexes[i] == 1){
-//                //Random pomIdx = new Random();
-//                idx = pomIdx.nextInt(this.map.getNumberOfGenesPerAnimal());
-//            }
             indexes[idx] = 1;
         }
         for(int i=0; i<this.map.getNumberOfGenesPerAnimal(); i++){
@@ -68,7 +58,7 @@ public class Multiplication {
         newAnimal.setAnimalGenes(newGenes);
     }
     public Animal makeNewAnimal(){
-        //nalezy wylosowac strone po ktorej w genotypie potomka beda geny od silniejszego rodzica - ZROBIONE
+        //nalezy wylosowac strone po ktorej w genotypie potomka beda geny od silniejszego rodzica
         Random randomSite = new Random();
         int strongestSite = randomSite.nextInt(2); //moge wybrac 0 - strona lewa, 1 - strona prawa
         int sumEnergy = this.animal1.getAnimalEnergy() + this.animal2.getAnimalEnergy();
@@ -100,7 +90,6 @@ public class Multiplication {
                 }
             }
         }
-        //zmienic generowanie losowej pozycji narodzonego zwierza na ta na ktorej stoja jego rodzice - ZMIENIONE
         Animal newAnimal = new Animal(this.map.getEnergyUsedToCreateBabies(), this.map, descendantsGenes);
         animalStrong.setAnimalEnergy(animalStrong.getAnimalEnergy()-this.map.getEnergyUsedToCreateBabies());
         animalWeak.setAnimalEnergy(animalWeak.getAnimalEnergy()-this.map.getEnergyUsedToCreateBabies());

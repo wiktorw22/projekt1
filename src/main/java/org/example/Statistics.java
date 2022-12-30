@@ -27,35 +27,35 @@ public class Statistics extends Application {
         grid.setHgap(10);
 
         //aktualna ilosc roslinek
-        Label numberOfPlants = new Label(" Actual number of plants: ");
+        Label numberOfPlants = new Label(" Current amount of plants: ");
         GridPane.setConstraints(numberOfPlants,0,1,1,1);
 
         Label numberOfPlantsRes = new Label(Integer.toString(this.map.plants.keySet().toArray().length));
         GridPane.setConstraints(numberOfPlantsRes,1,1,1,1);
 
         //aktualna ilosc zwierzakow
-        Label numberOfAnimals = new Label(" Actual number of animals: ");
+        Label numberOfAnimals = new Label(" Current amount of animals: ");
         GridPane.setConstraints(numberOfAnimals,0,2,1,1);
 
         Label numberOfAnimalsRes = new Label(Integer.toString(this.map.animals.toArray().length));
         GridPane.setConstraints(numberOfAnimalsRes,1,2,1,1);
 
         //aktualna liczba wolnych pol
-        Label freeFields = new Label(" Actual number of free fields: ");
+        Label freeFields = new Label(" Current amount of free fields: ");
         GridPane.setConstraints(freeFields,0,3,1,1);
 
         Label numberOfFreeFieldsRes = new Label(Integer.toString(this.freeFields()));
         GridPane.setConstraints(numberOfFreeFieldsRes,1,3,1,1);
 
         //aktualny sredni poziom energii zwierzat zyjacych
-        Label energyLevel = new Label(" Actual number of average energy level: ");
+        Label energyLevel = new Label(" Current average energy level: ");
         GridPane.setConstraints(energyLevel,0,4,1,1);
 
         Label numberOfEnergyLevelRes = new Label(Double.toString(this.avgEnergyLevel()));
         GridPane.setConstraints(numberOfEnergyLevelRes,1,4,1,1);
 
         //aktualny sredni poziom wieku zwierzat umarlych
-        Label ageLevel = new Label(" Actual number of average age: ");
+        Label ageLevel = new Label(" Current average age of life: ");
         GridPane.setConstraints(ageLevel,0,5,1,1);
 
         Label numberOfAgeLevelRes = new Label(Double.toString(this.avgAgeLevel()));

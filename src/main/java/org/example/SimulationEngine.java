@@ -14,9 +14,6 @@ public class SimulationEngine implements IEngine, Runnable {
         this.map = map;
         this.app = app;
     }
-    public AnimalMap getAnimalMap(){
-        return this.map;
-    }
     public int getSimulationDay(){
         return this.day;
     }
@@ -80,7 +77,7 @@ public class SimulationEngine implements IEngine, Runnable {
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
-            //COŚ JAK STACK JEST PUSTY
+
             Random randomP = new Random();
             int probability = randomP.nextInt(100);
             if (probability >= 20 && !stack.isEmpty()) {
@@ -99,7 +96,6 @@ public class SimulationEngine implements IEngine, Runnable {
                 Plant newPlant = new Plant(plantPosition);
                 if (this.map.placePlant(newPlant)) {
                     this.map.placePlant(newPlant);
-                    //this.map.setAmountOfPlants(this.map.getAmountOfPlants()+1);
                     cnt++;
                 }
             }
@@ -159,7 +155,7 @@ public class SimulationEngine implements IEngine, Runnable {
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
-        for (int i = 0; i < this.map.animals.toArray().length; i++) { //this.map.getAmountOfAnimals()
+        for (int i = 0; i < this.map.animals.toArray().length; i++) {
             Animal movedAnimal = this.map.animals.get(i);
             if(movedAnimal != null){
                 Vector2d animalPosition = movedAnimal.getAnimalPosition();
@@ -181,7 +177,6 @@ public class SimulationEngine implements IEngine, Runnable {
                 movedAnimal.setAnimalAge(movedAnimal.getAnimalAge()+1);
                 movedAnimal.setAnimalEnergy(movedAnimal.getAnimalEnergy()-1);
                 if (map.isOccupiedPlant(movedAnimal.getAnimalPosition())){ //zjedzenie roslinki
-                    //Plant PlantToEat = map.objectAtPlant(movedAnimal.getAnimalPosition());
                     int energyFromPlant = map.getGrassEnergy();
                     int oldEnergy = movedAnimal.getAnimalEnergy();
                     int newEnergy = oldEnergy+energyFromPlant;
@@ -199,11 +194,10 @@ public class SimulationEngine implements IEngine, Runnable {
         if (today < 1000){
             moveOneDay(today+1);
         }
-        //System.out.println(this.map.plants.keySet().toArray().length);
     }
     //metoda rozmnazajace zdolne do tego zwierzaki
     public void multiplicate(){
-        for(int i = 0; i < this.map.animals.toArray().length; i++) { //this.map.getAmountOfAnimals()
+        for(int i = 0; i < this.map.animals.toArray().length; i++) {
             if(this.map.animals.get(i) != null && this.map.positions.get(this.map.animals.get(i).getAnimalPosition()) != null){
                 if(this.map.positions.get(this.map.animals.get(i).getAnimalPosition()).toArray().length >= 2){
                     Parents parents = new Parents(this.map.positions.get(this.map.animals.get(i).getAnimalPosition()), this.map.animals.get(i).getAnimalPosition(), this.map);
@@ -226,10 +220,6 @@ public class SimulationEngine implements IEngine, Runnable {
         placeAnimals();
         placePlants(map.getStartAmountOfPlants());
         moveOneDay(1);
-
-//      System.out.println(map.toString());
-//      System.out.println("-----");
-
 
     }
 }
