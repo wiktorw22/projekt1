@@ -21,13 +21,8 @@ abstract class AbstractGuiElementBox {
         if(animalList!=null){
             numberOfAnimalsInTheBox = animalList.toArray().length;
         }
-
         image = initializePictures(numberOfAnimalsInTheBox);
-
         imageView = new ImageView(image);
-
-//        imageView.setFitWidth(10);
-//        imageView.setFitHeight(10);
 
         imageView.setFitWidth((double)500/max(map.getMapWidth(),map.getMapHeight()));
         imageView.setFitHeight((double)500/max(map.getMapWidth(),map.getMapHeight()));

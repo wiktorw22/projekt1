@@ -18,7 +18,6 @@ public class GuiElementBoxPlant extends AbstractGuiElementBox {
     public GuiElementBoxPlant(IMapElementTemp mapElement, ArrayList<Animal> animalList, AnimalMap map) throws FileNotFoundException {
         super(mapElement, animalList, map);
     }
-
     @Override
     public Image initializePictures(int numberOfAnimalsInTheBox) throws FileNotFoundException {
         return new Image(new FileInputStream("src/main/resources/plant.jpg"));
