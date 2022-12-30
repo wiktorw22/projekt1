@@ -20,7 +20,7 @@ public class GuiElementBoxPlant extends AbstractGuiElementBox {
     }
     @Override
     public Image initializePictures(int numberOfAnimalsInTheBox) throws FileNotFoundException {
-        return new Image(new FileInputStream("src/main/resources/plant.jpg"));
+        return new Image(new FileInputStream("src/main/resources/plant.png"));
     }
 
 }

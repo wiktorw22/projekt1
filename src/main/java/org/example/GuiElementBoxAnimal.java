@@ -18,14 +18,20 @@ public class GuiElementBoxAnimal extends AbstractGuiElementBox {
         super(mapElement, animalList, map);
     }
     public Image initializePictures(int numberOfAnimalsInTheBox) throws FileNotFoundException {
-        if(numberOfAnimalsInTheBox>0 && numberOfAnimalsInTheBox<5){
+        if(numberOfAnimalsInTheBox>0 && numberOfAnimalsInTheBox<3){
             image = new Image(new FileInputStream("src/main/resources/dot0.png"));
         }
-        else if(numberOfAnimalsInTheBox>=5 && numberOfAnimalsInTheBox<25){
-            image = new Image(new FileInputStream("src/main/resources/dot.png"));
+        else if(numberOfAnimalsInTheBox>=3 && numberOfAnimalsInTheBox<8){
+            image = new Image(new FileInputStream("src/main/resources/dot1.png"));
+        }
+        else if(numberOfAnimalsInTheBox>=8 && numberOfAnimalsInTheBox<12){
+            image = new Image(new FileInputStream("src/main/resources/dot2.png"));
+        }
+        else if(numberOfAnimalsInTheBox>=12 && numberOfAnimalsInTheBox<20){
+            image = new Image(new FileInputStream("src/main/resources/dot3.png"));
         }
         else if(numberOfAnimalsInTheBox>0){
-            image = new Image(new FileInputStream("src/main/resources/dot2.png"));
+            image = new Image(new FileInputStream("src/main/resources/dot4.png"));
         }
         return image;
     }

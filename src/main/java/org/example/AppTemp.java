@@ -46,7 +46,11 @@ public class AppTemp extends Application implements IPositionChangeObserver{
         button2.setOnAction(action -> {
             Properties properties = new Properties(this.map, this, this.engine);
             Stage newWindow = new Stage();
-            properties.start(newWindow);
+            try {
+                properties.start(newWindow);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         //zapis statystyk do pliku csv
