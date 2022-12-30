@@ -15,7 +15,6 @@ import static java.lang.Math.max;
 public class GuiElementBoxAnimal {
     Image image;
     ImageView imageView;
-    Label label;
     public GuiElementBoxAnimal(ArrayList<Animal> animalList,AnimalMap map) throws FileNotFoundException {
 
         int numberOfAnimalsInTheBox = animalList.toArray().length;
@@ -34,19 +33,11 @@ public class GuiElementBoxAnimal {
         imageView.setFitWidth((double)500/max(map.getMapWidth(),map.getMapHeight()));
         imageView.setFitHeight((double)500/max(map.getMapWidth(),map.getMapHeight()));
 
-        if (numberOfAnimalsInTheBox > 0) {
-
-            label = new Label(Integer.toString(numberOfAnimalsInTheBox));
-       }
-        else{
-            label = new Label();
-        }
-
     }
 
     public VBox toBoxAnimals() {
 
-        VBox box = new VBox(imageView, label);
+        VBox box = new VBox(imageView);
         box.setAlignment(Pos.CENTER);
         return box;
     }
