@@ -38,6 +38,7 @@ import javafx.geometry.HPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -74,11 +75,18 @@ public class AppTemp extends Application implements IPositionChangeObserver{
         primaryStage.setTitle(" Ewolucyjne polowanie 2022 ");
         grid = new GridPane();
         Button button = new Button("   STOP   ");
-        Button button1 = new Button(" statystyki ");
-        VBox vBox = new VBox(button, button1);
+        Button button1 = new Button(" statistics ");
+        Button button2 = new Button(" properties "); //opisy ilustracji uzytych na mapie
+        VBox vBox = new VBox(button, button1, button2);
         button.setOnAction(action ->{
             primaryStage.close();
             exit(0);
+        });
+
+        button2.setOnAction(action -> {
+            Properties properties = new Properties(this.map, this, this.engine);
+            Stage newWindow = new Stage();
+            properties.start(newWindow);
         });
 
         StatisticsToFile statisticsToFile = new StatisticsToFile(this.statistics);

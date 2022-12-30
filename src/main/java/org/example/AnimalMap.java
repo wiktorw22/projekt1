@@ -156,7 +156,7 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
     public void removeFromList(Vector2d position, Animal animal) {
         ArrayList<Animal> animalList = positions.get(position);
         // if list does not exist create it
-        if(animalList.contains(animal)){
+        if(animalList!=null && animalList.contains(animal)){
             animalList.remove(animal);
         }
     }
@@ -198,7 +198,7 @@ public class AnimalMap implements IWorldMap, IPositionChangeObserver{
     public void cleanUpDeadAnimals(ArrayList<Animal> animals){
         for(int i=0; i<animals.toArray().length; i++){
             Animal animal = animals.get(i);
-            if(animal!=null && animal.getAnimalEnergy()==0){
+            if(animals!=null && animal!=null && animal.getAnimalEnergy()==0){
                 Vector2d position = animal.getAnimalPosition();
                 deadAnimals.put(position,deadAnimals.get(position)+1);
                 deadAnimalsList.add(animal);
